@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final ImageView ballDisplay = findViewById(R.id.image_eightBall);
-        Button myButton = findViewById(R.id.askButton);
 
         final int[] ballArray = new int[] {
                 R.drawable.ball1,
@@ -26,13 +25,16 @@ public class MainActivity extends AppCompatActivity {
                 R.drawable.ball5
         };
 
+        Button myButton = findViewById(R.id.askButton);
+
         myButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
 
                 Random randomNumberGenerator = new Random();
                 int number = randomNumberGenerator.nextInt(5);
-                ballDisplay.setImageResource(ballArray[number]);
+                int imageResourceId = ballArray[number];
+                ballDisplay.setImageResource(imageResourceId);
 
             }
         });
